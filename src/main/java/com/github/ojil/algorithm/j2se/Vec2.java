@@ -14,9 +14,9 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
-import jjil.core.Point;
+import com.github.ojil.core.Point;
 /**
  * Implementation of 2-dimensional vector.
  * @author webb
@@ -124,7 +124,7 @@ public class Vec2 {
     /**
      * Calculate length of this Vec2.
      * @return sqrt(nX<sup>2</sup> + nY<sup>2</sup>)
-     * @throws jjil.core.Error if sqrt does, due to coding error
+     * @throws com.github.ojil.core.Error if sqrt does, due to coding error
      */
     public double length() throws Error {
         return Math.sqrt(fX * fX + fY * fY);

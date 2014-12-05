@@ -1,4 +1,4 @@
-package jjil.j2se;
+package com.github.ojil.j2se;
 
 import java.awt.Graphics;
 import java.awt.Image;
@@ -16,19 +16,19 @@ import java.util.Hashtable;
 
 import javax.imageio.ImageIO;
 
-import jjil.core.RgbImage;
+import com.github.ojil.core.RgbImage;
 
 /**
- * RgbImageJ2se is the interface between JJIL's RgbImage and java.awt.Image
+ * RgbImageJ2se is the interface between com.github.ojil's RgbImage and java.awt.Image
  * objects. It provides an implementation of the Show interface for use
  * with the Debug object, which allows images to be displayed and sent
  * to files without being aware of the underlying architecture.<br>
  * It also provides methods for transforming java.awt.Image
- * objects to and from jjil.core.RgbImage objects.<br>
+ * objects to and from com.github.ojil.core.RgbImage objects.<br>
  * @author webb
  *
  */
-public class RgbImageJ2se implements jjil.debug.Show {
+public class RgbImageJ2se implements com.github.ojil.debug.Show {
 	static private Graphics graphics = null;
 	
 	/**
@@ -98,11 +98,11 @@ public class RgbImageJ2se implements jjil.debug.Show {
 	}
 	
 	/**
-	 * Transforms an input java.awt.Image to a jjil.core.RgbImage.
+	 * Transforms an input java.awt.Image to a com.github.ojil.core.RgbImage.
 	 * The image is read from the ImageProducer until the entire image is
 	 * received, and the result is stored into the returned RgbImage.
 	 * @param im the input java.awt.Image object.
-	 * @return a jjil.core.RgbImage with the same contents as the input im.
+	 * @return a com.github.ojil.core.RgbImage with the same contents as the input im.
 	 */
 	static public RgbImage toRgbImage(Image im) {
 		 class getImageData implements ImageConsumer {

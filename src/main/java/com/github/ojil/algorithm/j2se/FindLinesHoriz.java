@@ -13,12 +13,12 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
 import java.util.Vector;
-import jjil.core.Error;
-import jjil.core.Gray8Image;
-import jjil.core.Point;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Point;
 
 /** Find the most likely roughly horizontally-oriented line in a Gray8Image.
  * The input image is assumed to be thresholded so any points not equal to

@@ -1,4 +1,4 @@
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 /*
  * Gray8DetectHaarMultiScale.java
  *
@@ -29,14 +29,14 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Enumeration;
 
-import jjil.algorithm.ErrorCodes;
-import jjil.algorithm.Gray8Crop;
-import jjil.algorithm.Gray8RectStretch;
-import jjil.algorithm.Gray8Shrink;
-import jjil.core.Error;
-import jjil.core.Gray8Image;
-import jjil.core.Image;
-import jjil.core.PipelineStage;
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.algorithm.Gray8Crop;
+import com.github.ojil.algorithm.Gray8RectStretch;
+import com.github.ojil.algorithm.Gray8Shrink;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Image;
+import com.github.ojil.core.PipelineStage;
 
 /**
  * DetectHaar applies a Haar cascade at multiple locations and multiple scales
@@ -89,11 +89,11 @@ public class Gray8DetectHaarMultiScale extends PipelineStage {
      * wherever you got this code from.
      * @param fMinScale Minimum (finest) scale at which features will be detected.
      * @param fMaxScale Maximum (coarsest) scale at which features will be detected.
-     * @throws jjil.core.Error if there is an error in the input file.
+     * @throws com.github.ojil.core.Error if there is an error in the input file.
      * @throws java.io.IOException if there is an I/O error reading the input file.
      */
     public Gray8DetectHaarMultiScale(InputStream is, float fMinScale, float fMaxScale) 
-    	throws jjil.core.Error, IOException
+    	throws com.github.ojil.core.Error, IOException
     {
         this.fMinScale = fMinScale;
         this.fMaxScale = fMaxScale;
@@ -105,9 +105,9 @@ public class Gray8DetectHaarMultiScale extends PipelineStage {
     /**
      * Detect rectangles in imGray
      * @param imGray image to detect rectangles in
-     * @throws jjil.core.Error if image is too small
+     * @throws com.github.ojil.core.Error if image is too small
      */
-    public void detect(Gray8Image imGray) throws jjil.core.Error {
+    public void detect(Gray8Image imGray) throws com.github.ojil.core.Error {
         this.rc = new RectCollection();
         
         if (imGray.getWidth() < this.hcc.getWidth() ||
@@ -177,11 +177,11 @@ public class Gray8DetectHaarMultiScale extends PipelineStage {
      * Apply multi-scale Haar cascade and prepare a mask image showing where features
      * were detected.
      * @param image Input Gray8Image.
-     * @throws jjil.core.Error if the input is not a Gray8Image or is too small.
+     * @throws com.github.ojil.core.Error if the input is not a Gray8Image or is too small.
      */
          
     @Override
-	public void push(Image image) throws jjil.core.Error
+	public void push(Image image) throws com.github.ojil.core.Error
     {
         Gray8Image imGray;
         if (image instanceof Gray8Image) {

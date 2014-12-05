@@ -22,16 +22,16 @@
  *
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import jjil.algorithm.ErrorCodes;
-import jjil.algorithm.Gray8QmSum;
-import jjil.core.Error;
-import jjil.core.Gray32Image;
-import jjil.core.Gray8Image;
-import jjil.core.Image;
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.algorithm.Gray8QmSum;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray32Image;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Image;
 /**
  * HaarClassifierCascade implements a Haar classifier, which is a trainable
  * image processing tool for detecting the presence of a feature or class of
@@ -98,9 +98,9 @@ public abstract class HaarClassifierCascade {
      * @param i The input Gray8Image. The image size must be equal to the expected size
      * (as given by getWidth() and getHeight()).
      * @return true iff the input image passes all the tests in the Haar cascade.
-     * @throws jjil.core.Error if the input image is not a Gray8Image or is the wrong size.
+     * @throws com.github.ojil.core.Error if the input image is not a Gray8Image or is the wrong size.
      */
-    public abstract boolean eval(Image i) throws jjil.core.Error;
+    public abstract boolean eval(Image i) throws com.github.ojil.core.Error;
     
     /**
      * Support method for reading integers from an input stream. The single-character
@@ -110,7 +110,7 @@ public abstract class HaarClassifierCascade {
      * The separator character can be any non-numeric character.<br>
      * @return the next integer read from the input stream.
      * @param isr The input stream.
-     * @throws jjil.core.Error if there is a parse error in the file.
+     * @throws com.github.ojil.core.Error if there is a parse error in the file.
      * @throws java.io.IOException if the read method of isr returns an IOException.
      */
     enum STATE_INT {
@@ -118,7 +118,7 @@ public abstract class HaarClassifierCascade {
         DIGITS,
     };
     protected static int readInt(InputStreamReader isr) 
-        throws jjil.core.Error, IOException, IOException
+        throws com.github.ojil.core.Error, IOException, IOException
     {
         String szInt = "";
         STATE_INT state = STATE_INT.BEGIN;
@@ -175,7 +175,7 @@ public abstract class HaarClassifierCascade {
      * The separator character can be any non-numeric character.<br>
      * @return the next float read from the input stream.
      * @param isr The input stream.
-     * @throws jjil.core.Error if there is a parse error in the file.
+     * @throws com.github.ojil.core.Error if there is a parse error in the file.
      * @throws java.io.IOException if the read method of isr returns an IOException.
      */
     enum STATE_FLOAT {
@@ -186,7 +186,7 @@ public abstract class HaarClassifierCascade {
         EXPONENT
     };
     protected static float readFloat(InputStreamReader isr) 
-        throws jjil.core.Error, IOException, IOException
+        throws com.github.ojil.core.Error, IOException, IOException
     {
         String szFloat = "";
         STATE_FLOAT state = STATE_FLOAT.BEGIN;
@@ -507,7 +507,7 @@ public abstract class HaarClassifierCascade {
        // think of a better way to do this than to make this a member of
        // HaarFeature and make the name as below.
         private HaarRect makeHaarRectFromStream(InputStreamReader isr) 
-            throws jjil.core.Error, IOException
+            throws com.github.ojil.core.Error, IOException
         {
 
             char[] rC = new char[4];
@@ -557,10 +557,10 @@ public abstract class HaarClassifierCascade {
          * are tilted, 0 if not.
          * @throws java.io.IOException if the input stream reader methods return IOException, or we get an early
          * end of file.
-         * @throws jjil.core.Error if the input is not in the expected format.
+         * @throws com.github.ojil.core.Error if the input is not in the expected format.
          */
         public HaarFeature(InputStreamReader isr)
-           throws jjil.core.Error, IOException 
+           throws com.github.ojil.core.Error, IOException 
         {
             char[] rC = new char[4];
             isr.read(rC, 0, 4);
@@ -664,10 +664,10 @@ public abstract class HaarClassifierCascade {
      * @return The created HaarClassifierCascade. This will always be of
      * type HaarClassifierStumpBase.
      * @throws java.io.IOException if the read from isr returns an IOException, or if end of file is encountered unexpectedly.
-     * @throws jjil.core.Error If the input doesn't match what is expected.
+     * @throws com.github.ojil.core.Error If the input doesn't match what is expected.
      */
     public static HaarClassifierCascade fromStream(InputStreamReader isr) 
-           throws jjil.core.Error, IOException 
+           throws com.github.ojil.core.Error, IOException 
     {
         // read the first token from the stream
         String szToken = ""; //$NON-NLS-1$
@@ -752,7 +752,7 @@ class HaarClassifierTreeBase extends HaarClassifierCascade
     private HaarClassifierTreeBase parent;
 
     @Override
-	public boolean eval(Image image) throws jjil.core.Error {
+	public boolean eval(Image image) throws com.github.ojil.core.Error {
         if (!(image instanceof Gray32Image)) {
              throw new Error(
             				Error.PACKAGE.ALGORITHM,
@@ -815,7 +815,7 @@ class  HaarClassifierStumpBase extends HaarClassifierCascade {
         // create from input stream
         // expected data: (hwcs <feature><threshold>,<alpha>)
         public HaarWeakClassifierStump(InputStreamReader isr, int width, int height) 
-           throws jjil.core.Error, IOException 
+           throws com.github.ojil.core.Error, IOException 
         {
             char[] rC = new char[6];
             isr.read(rC, 0, 6);
@@ -884,7 +884,7 @@ class  HaarClassifierStumpBase extends HaarClassifierCascade {
         // create from stream
         // expected input (hcs <count><HaarClassifierStumpLimb>^count<threshold>)
         public HaarClassifierStump(InputStreamReader isr, int width, int height) 
-           throws jjil.core.Error, IOException 
+           throws com.github.ojil.core.Error, IOException 
         {
             char[] rC = new char[5];
             isr.read(rC, 0, 5);
@@ -937,7 +937,7 @@ class  HaarClassifierStumpBase extends HaarClassifierCascade {
 
        
         @Override
-		public boolean eval(Image image) throws jjil.core.Error {
+		public boolean eval(Image image) throws com.github.ojil.core.Error {
             if (!(image instanceof Gray8Image)) {
                  throw new Error(
                                  Error.PACKAGE.ALGORITHM,
@@ -974,7 +974,7 @@ class  HaarClassifierStumpBase extends HaarClassifierCascade {
     // Expected input (hcsb <width> <height> <count><HaarClassifierStump>^count)
     // the '(hcsb ' has already been read before this gets called
     public HaarClassifierStumpBase(InputStreamReader isr) 
-       throws jjil.core.Error, IOException 
+       throws com.github.ojil.core.Error, IOException 
     {
         /*
         char[] rC = new char[6];

@@ -22,14 +22,14 @@
  *
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 import java.awt.Rectangle;
 
-import jjil.algorithm.ErrorCodes;
-import jjil.core.Error;
-import jjil.core.Gray8Image;
-import jjil.core.Image;
-import jjil.core.PipelineStage;
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Image;
+import com.github.ojil.core.PipelineStage;
 
 /**
  * Pipeline stage assigns a constant value to a rectangle in an input Gray8Image
@@ -47,10 +47,10 @@ public class Gray8Rect extends PipelineStage {
      * @param nWidth the width of the rectangle.
      * @param nHeight the height of the rectangle.
      * @param bValue the value to be assigned to the rectangle.
-     * @throws jjil.core.Error if the height or width of the rectangle is negative or zero.
+     * @throws com.github.ojil.core.Error if the height or width of the rectangle is negative or zero.
      */
     public Gray8Rect(int cX, int cY, int nWidth, int nHeight, byte bValue) 
-    	throws jjil.core.Error {
+    	throws com.github.ojil.core.Error {
     	setWindow(cX, cY, nWidth, nHeight);
         this.bValue = bValue;
     }
@@ -60,10 +60,10 @@ public class Gray8Rect extends PipelineStage {
      * the given value
      * @param r the Rect to fill
      * @param bValue the byte value to assign
-     * @throws jjil.core.Error if the rectangle has zero or negative width or
+     * @throws com.github.ojil.core.Error if the rectangle has zero or negative width or
      * height
      */
-    public Gray8Rect(Rectangle r, byte bValue) throws jjil.core.Error {
+    public Gray8Rect(Rectangle r, byte bValue) throws com.github.ojil.core.Error {
         setWindow((int)r.getMinY(), (int)r.getMinX(), (int)r.getWidth(), (int)r.getHeight());
         this.bValue = bValue;
     }
@@ -71,9 +71,9 @@ public class Gray8Rect extends PipelineStage {
     /**
      * Assigns a constant rectangle to the input Gray8Image, replacing values in the image.
      * @param image the input image (output replaces input).
-     * @throws jjil.core.Error if the input is not a Gray8Image.
+     * @throws com.github.ojil.core.Error if the input is not a Gray8Image.
      */
-    public void push(Image image) throws jjil.core.Error {
+    public void push(Image image) throws com.github.ojil.core.Error {
         if (!(image instanceof Gray8Image)) {
             throw new Error(
             				Error.PACKAGE.ALGORITHM,
@@ -101,10 +101,10 @@ public class Gray8Rect extends PipelineStage {
      * @param cY top-left vertical coordinate of the rectangle.
      * @param nWidth Width of the rectangle.
      * @param nHeight Height of the rectangle.
-     * @throws jjil.core.Error if the width or height is negative or zero.
+     * @throws com.github.ojil.core.Error if the width or height is negative or zero.
      */
     public void setWindow(int cX, int cY, int nWidth, int nHeight) 
-    	throws jjil.core.Error {
+    	throws com.github.ojil.core.Error {
     	if (nWidth <= 0 || nHeight <= 0) {
             throw new Error(
             		Error.PACKAGE.ALGORITHM,

@@ -22,12 +22,12 @@
  *
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 import java.util.Enumeration;
 import java.util.Vector;
 
-import jjil.core.Error;
-import jjil.core.Point;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Point;
 
 /**
  * Finds a line in an array of points using Hough transform. Not a pipeline
@@ -68,7 +68,7 @@ public class LinefitHoughHoriz {
      * @param cMaxSlope maximum slope 
      * @param cSlopeSteps steps taken in Hough accumulator between minimum and
      * maximum slope.
-     * @throws jjil.core.Error if Y or slope range is empty, or
+     * @throws com.github.ojil.core.Error if Y or slope range is empty, or
      * cSlopeSteps is not positive.
      */
     public LinefitHoughHoriz(
@@ -77,11 +77,11 @@ public class LinefitHoughHoriz {
             int cYSteps,
             double cMinSlope, 
             double cMaxSlope, 
-            int cSlopeSteps) throws jjil.core.Error {
+            int cSlopeSteps) throws com.github.ojil.core.Error {
         if (cMaxY < cMinY) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_RANGE_NULL_OR_NEGATIVE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_RANGE_NULL_OR_NEGATIVE,
                             new Integer(cMinY).toString(),
                             new Integer(cMaxY).toString(),
                             null);
@@ -91,7 +91,7 @@ public class LinefitHoughHoriz {
         if (cMaxSlope < cMinSlope) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_RANGE_NULL_OR_NEGATIVE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_RANGE_NULL_OR_NEGATIVE,
                             new Double(cMinSlope).toString(),
                             new Double(cMaxSlope).toString(),
                             null);
@@ -99,7 +99,7 @@ public class LinefitHoughHoriz {
         if (cSlopeSteps <= 0) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
                             new Integer(cSlopeSteps).toString(),
                             new Integer(1).toString(),
                             new Integer(Integer.MAX_VALUE).toString());
@@ -107,7 +107,7 @@ public class LinefitHoughHoriz {
         if (cYSteps <= 0) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
                             new Integer(cYSteps).toString(),
                             new Integer(1).toString(),
                             new Integer(Integer.MAX_VALUE).toString());
@@ -196,10 +196,10 @@ public class LinefitHoughHoriz {
     /** Finds the most likely line passing through the points in the Vector.
      * 
      * @param points the input Vector of point positions
-     * @throws jjil.core.Error if points is not a Vector of 
+     * @throws com.github.ojil.core.Error if points is not a Vector of 
      * point objects.
      */
-    public void push(Vector points) throws jjil.core.Error {
+    public void push(Vector points) throws com.github.ojil.core.Error {
         /* create Hough accumulator */
         this.cHoughAccum = 
                 new int[this.cSlopeSteps][this.cYSteps];
@@ -210,7 +210,7 @@ public class LinefitHoughHoriz {
             if (!(o instanceof Point)) {
                 throw new Error(
                                 Error.PACKAGE.ALGORITHM,
-                                jjil.algorithm.ErrorCodes.OBJECT_NOT_EXPECTED_TYPE,
+                                com.github.ojil.algorithm.ErrorCodes.OBJECT_NOT_EXPECTED_TYPE,
                                 o.toString(),
                                 "Point",
                                 null);

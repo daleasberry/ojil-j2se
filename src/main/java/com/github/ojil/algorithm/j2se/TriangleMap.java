@@ -14,13 +14,14 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
-import jjil.algorithm.ErrorCodes;
-import jjil.algorithm.j2se.Vec2;
-import jjil.core.Error;
-import jjil.core.Point;
-import jjil.core.Triangle;
+import com.github.ojil.algorithm.j2se.Vec2;
+
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Point;
+import com.github.ojil.core.Triangle;
 
 /**
  * Class manages a mapping from one triangle to another (an affine warp).<p>
@@ -34,9 +35,9 @@ public class TriangleMap {
      * Create a new TriangleMap mapping points in one triangle into another.
      * @param t1 source triangle
      * @param t2 target triangle
-     * @throws jjil.core.Error if some of the edges in t1 are of length zero
+     * @throws com.github.ojil.core.Error if some of the edges in t1 are of length zero
      */
-    public TriangleMap(Triangle t1, Triangle t2) throws jjil.core.Error {
+    public TriangleMap(Triangle t1, Triangle t2) throws com.github.ojil.core.Error {
         this.p1 = t1.getP1();
         this.p2 = t2.getP1();
         Vec2 s12, s13, s22, s23;

@@ -15,7 +15,7 @@
  *
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
 import java.awt.Point;
 import java.awt.Rectangle;

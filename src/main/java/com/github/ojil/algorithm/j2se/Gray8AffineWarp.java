@@ -19,13 +19,13 @@
  *
  */
 
-package jjil.algorithm.j2se;
-import jjil.algorithm.*;
-import jjil.core.Error;
-import jjil.core.Gray8Image;
-import jjil.core.Gray8OffsetImage;
-import jjil.core.Image;
-import jjil.core.PipelineStage;
+package com.github.ojil.algorithm.j2se;
+import com.github.ojil.algorithm.*;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Gray8OffsetImage;
+import com.github.ojil.core.Image;
+import com.github.ojil.core.PipelineStage;
 
 /**
  * This PipelineStage performs an affine transformation on an input
@@ -51,9 +51,9 @@ public class Gray8AffineWarp extends PipelineStage {
      * work on image warping.
      * <p>
      * @param warp the 2x3 affine warp to be performed.
-     * @throws jjil.core.Error if the warp is null or not a 2x3 matrix.
+     * @throws com.github.ojil.core.Error if the warp is null or not a 2x3 matrix.
      */
-    public Gray8AffineWarp(double[][] warp) throws jjil.core.Error {
+    public Gray8AffineWarp(double[][] warp) throws com.github.ojil.core.Error {
         this.setWarp(warp);
     }
     
@@ -69,10 +69,10 @@ public class Gray8AffineWarp extends PipelineStage {
      * Affine warp of an image.
      *
      * @param image the input gray image.
-     * @throws jjil.core.Error if the input image is not gray,
+     * @throws com.github.ojil.core.Error if the input image is not gray,
      * or the trapezoid already specified extends outside its bounds.
      */
-    public void push(Image image) throws jjil.core.Error {
+    public void push(Image image) throws com.github.ojil.core.Error {
         if (!(image instanceof Gray8Image)) {
             throw new Error(
     				Error.PACKAGE.ALGORITHM,
@@ -109,14 +109,14 @@ public class Gray8AffineWarp extends PipelineStage {
     /** Sets the warp in use and decomposes it into two stages, determining
      * the order of the warp (x first or y first).
      * @param warp the 2 x 3 affine warp transformation.
-     * @throws jjil.core.Error if the warp is not 2x3 or the warp is not
+     * @throws com.github.ojil.core.Error if the warp is not 2x3 or the warp is not
      * decomposable (warp[0][0] or warp[1][1] is 0).
      */
-    public void setWarp(double[][] warp) throws jjil.core.Error {
+    public void setWarp(double[][] warp) throws com.github.ojil.core.Error {
         if (warp.length != 2 || warp[0].length != 3 || warp[1].length != 3) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_WRONG_SIZE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_WRONG_SIZE,
                             warp.toString(),
                             null,
                             null);
@@ -125,7 +125,7 @@ public class Gray8AffineWarp extends PipelineStage {
         if (warp[0][0] == 0.0d || warp[1][1] == 0.0d || fDivisorY == 0.0d) {
             throw new Error(
                             Error.PACKAGE.ALGORITHM,
-                            jjil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
+                            com.github.ojil.algorithm.ErrorCodes.PARAMETER_OUT_OF_RANGE,
                             warp.toString(),
                             null,
                             null);
@@ -236,7 +236,7 @@ public class Gray8AffineWarp extends PipelineStage {
      * Returns a string describing the current instance. All the constructor
      * parameters are returned in the order specified in the constructor.
      * @return The string describing the current instance. The string is of the form 
-     * "jjil.algorithm.Gray8AffineWarpxxx (startRow,endRow,leftColStart,
+     * "com.github.ojil.algorithm.Gray8AffineWarpxxx (startRow,endRow,leftColStart,
      * rightColStart,leftColEnd,rightColEnd)"
      */
     public String toString() {

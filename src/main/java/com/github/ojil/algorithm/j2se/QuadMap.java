@@ -14,12 +14,12 @@
  *    along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
-import jjil.core.Error;
-import jjil.core.Point;
-import jjil.core.Quad;
-import jjil.core.Triangle;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Point;
+import com.github.ojil.core.Quad;
+import com.github.ojil.core.Triangle;
 
 /**
  * Maps points in one quadtrilateral into another. <p>
@@ -36,9 +36,9 @@ public class QuadMap {
      * the two maps are not optimized.
      * @param q1 source map
      * @param q2 target map
-     * @throws jjil.core.Error if Triangle does, due to colinearity.
+     * @throws com.github.ojil.core.Error if Triangle does, due to colinearity.
      */
-    public QuadMap(Quad q1, Quad q2) throws jjil.core.Error {
+    public QuadMap(Quad q1, Quad q2) throws com.github.ojil.core.Error {
         // initialize the triangle maps. 
         this.t = new TriangleMap[2];
         this.t[0] = new TriangleMap(

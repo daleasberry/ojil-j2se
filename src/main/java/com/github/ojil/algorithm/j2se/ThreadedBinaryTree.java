@@ -15,7 +15,7 @@
  *
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
 import java.util.Vector;
 
@@ -32,7 +32,7 @@ import java.util.Vector;
  * starting at any node without doing a full traversal of
  * the tree.
  * <p>
- * The use of threaded binary trees in JJIL is to make it possible
+ * The use of threaded binary trees in com.github.ojil is to make it possible
  * to add() a new element to the tree in average log n time
  * and then to traverse from any node to any other node in
  * time equal to the number of nodes between the two nodes.
@@ -361,7 +361,7 @@ public class ThreadedBinaryTree<typeKey extends Comparable<typeKey>, typeValue> 
 //                    }
 //                }
 //            }
-//        } catch (jjil.core.Error e) {
+//        } catch (com.github.ojil.core.Error e) {
 //            
 //        }
 }

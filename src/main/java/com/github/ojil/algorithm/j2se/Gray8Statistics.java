@@ -22,11 +22,11 @@
  *
  */
 
-package jjil.algorithm.j2se;
-import jjil.algorithm.ErrorCodes;
-import jjil.core.Error;
-import jjil.core.Gray8Image;
-import jjil.core.Image;
+package com.github.ojil.algorithm.j2se;
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Image;
 
 /**
  * Gray8Statistics is used to measure the mean and variance of a gray
@@ -48,9 +48,9 @@ public class Gray8Statistics {
     /** Estimate the mean and variance of an input gray image.
      *
      * @param image the input image.
-     * @throws jjil.core.Error if the input image is not gray.
+     * @throws com.github.ojil.core.Error if the input image is not gray.
      */
-    public void push(Image image) throws jjil.core.Error
+    public void push(Image image) throws com.github.ojil.core.Error
     {
         if (!(image instanceof Gray8Image)) {
             throw new Error(
@@ -93,9 +93,9 @@ public class Gray8Statistics {
     /**
      * Return standard deviation, times 256 using Newton's iteration.
      * @return the standard deviation, times 256.
-     * @throws jjil.core.Error if the variance computed in push() is less than zero.
+     * @throws com.github.ojil.core.Error if the variance computed in push() is less than zero.
      */
-    public float getStdDev() throws jjil.core.Error {
+    public float getStdDev() throws com.github.ojil.core.Error {
         float f = getVariance(); // getVariance() 
         if (f < 0) throw new Error(
             			Error.PACKAGE.ALGORITHM,

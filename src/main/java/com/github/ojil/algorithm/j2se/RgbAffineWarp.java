@@ -13,18 +13,18 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package jjil.algorithm.j2se;
+package com.github.ojil.algorithm.j2se;
 
-import jjil.algorithm.ErrorCodes;
-import jjil.algorithm.Gray3Bands2Rgb;
-import jjil.core.Error;
-import jjil.core.Image;
-import jjil.core.PipelineStage;
-import jjil.algorithm.RgbSelectGray;
-import jjil.core.Gray8Image;
-import jjil.core.Gray8OffsetImage;
-import jjil.core.RgbImage;
-import jjil.core.RgbOffsetImage;
+import com.github.ojil.algorithm.ErrorCodes;
+import com.github.ojil.algorithm.Gray3Bands2Rgb;
+import com.github.ojil.core.Error;
+import com.github.ojil.core.Image;
+import com.github.ojil.core.PipelineStage;
+import com.github.ojil.algorithm.RgbSelectGray;
+import com.github.ojil.core.Gray8Image;
+import com.github.ojil.core.Gray8OffsetImage;
+import com.github.ojil.core.RgbImage;
+import com.github.ojil.core.RgbOffsetImage;
 
 /**
  * Copyright 2008 by Jon A. Webb
