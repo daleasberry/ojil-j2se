@@ -361,7 +361,7 @@ public abstract class HaarClassifierCascade {
 
             @Override
 			protected float eval(Gray32Image image) {
-                int data[] =  image.getData();
+                Integer[] data =  image.getData();
                 return weight * ( data[this.n1] + data[this.n2] -
                                   data[this.n3] - data[this.n4] );
             }
@@ -401,7 +401,7 @@ public abstract class HaarClassifierCascade {
 
             @Override
 			protected float eval(Gray32Image image) {
-                int data[] = image.getData();
+                Integer[] data = image.getData();
 
                 return weight * ( data[this.n2] - data[this.n3] );
             }
@@ -441,7 +441,7 @@ public abstract class HaarClassifierCascade {
 
             @Override
 			protected float eval(Gray32Image image) {
-                int data[] = image.getData();
+                Integer[] data = image.getData();
 
                 return weight * ( data[this.n2] - data[this.n4] );
             }
@@ -478,7 +478,7 @@ public abstract class HaarClassifierCascade {
 
             @Override
 			protected float eval(Gray32Image image) {
-                int data[] = image.getData();
+                Integer[] data = image.getData();
 
                 return weight * ( data[this.n2] );
             }

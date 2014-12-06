@@ -31,7 +31,7 @@ import java.util.Vector;
 public class RectCollection {
     
     /**
-     * Vector of all rectangles in the collection.
+     * Vector<?>of all rectangles in the collection.
      */
     private Vector<Rectangle> vAllRect = new Vector<Rectangle>();
     
@@ -143,13 +143,13 @@ public class RectCollection {
         // rectangle lists
         Vector<ThreadedBinaryTree<Double,Vector<Rectangle>>> vTrav = 
                 tbtStart.inorderTraverse(tbtEnd);
-        // for eacn node in the inorder traversal, create the Vector of 
+        // for eacn node in the inorder traversal, create the Vector<?>of 
         // rectangles if necessary, and put this rectangle on it
         for (Enumeration<ThreadedBinaryTree<Double,Vector<Rectangle>>> e = 
                 vTrav.elements(); e.hasMoreElements();) {
             ThreadedBinaryTree<Double,Vector<Rectangle>> tbt = 
                     (ThreadedBinaryTree<Double,Vector<Rectangle>>) e.nextElement();
-            // Vector doesn't exist
+            // Vector<?>doesn't exist
             if (tbt.getValue() == null) {
                 Vector<Rectangle> v = new Vector<Rectangle>();
                 v.addElement(r);

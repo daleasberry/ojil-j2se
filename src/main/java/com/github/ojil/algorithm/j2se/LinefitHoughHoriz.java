@@ -38,7 +38,7 @@ import com.github.ojil.core.Point;
  */
 public class LinefitHoughHoriz {
     /** @var cHoughAccum the Hough accumulator array */
-    int[][] cHoughAccum;
+    Integer[][] cHoughAccum;
     /** @var cCount the number of points on the line that was found */
     int cCount = 0;
     /** @var cMaxSlope the maximum allowable slope, times 256 */
@@ -195,17 +195,17 @@ public class LinefitHoughHoriz {
     
     /** Finds the most likely line passing through the points in the Vector.
      * 
-     * @param points the input Vector of point positions
-     * @throws com.github.ojil.core.Error if points is not a Vector of 
+     * @param points the input Vector<?>of point positions
+     * @throws com.github.ojil.core.Error if points is not a Vector<?>of 
      * point objects.
      */
-    public void push(Vector points) throws com.github.ojil.core.Error {
+    public void push(Vector<?>points) throws com.github.ojil.core.Error {
         /* create Hough accumulator */
         this.cHoughAccum = 
-                new int[this.cSlopeSteps][this.cYSteps];
+                new Integer[this.cSlopeSteps][this.cYSteps];
         /* fill the Hough accumulator
          */
-        for (Enumeration e = points.elements(); e.hasMoreElements();) {
+        for (Enumeration<?> e = points.elements(); e.hasMoreElements();) {
             Object o = e.nextElement(); 
             if (!(o instanceof Point)) {
                 throw new Error(

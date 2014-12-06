@@ -175,8 +175,8 @@ public class Gray8AffineWarp extends PipelineStage {
                 grayIn.getHeight(), 
                 Byte.MIN_VALUE);
         // pointer to input
-        byte[] bDataIn = grayIn.getData();
-        byte[] bDataOut = grayOut.getData();
+        Byte[] bDataIn = grayIn.getData();
+        Byte[] bDataOut = grayOut.getData();
         for (int x = nMinX; x<nMaxX; x++) {
             for (int y = 0; y<grayIn.getHeight(); y++) {
                 // calculate x in original image
@@ -207,8 +207,8 @@ public class Gray8AffineWarp extends PipelineStage {
                 nMaxY - nMinY, 
                 Byte.MIN_VALUE);
         // pointer to input
-        byte[] bDataIn = grayIn.getData();
-        byte[] bDataOut = grayOut.getData();
+        Byte[] bDataIn = grayIn.getData();
+        Byte[] bDataOut = grayOut.getData();
         for (int y = nMinY; y<nMaxY; y++) {
             for (int x = 0; x<grayIn.getWidth(); x++) {
                 // calculate y in original image

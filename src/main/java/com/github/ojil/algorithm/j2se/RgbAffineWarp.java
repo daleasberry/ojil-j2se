@@ -17,12 +17,11 @@ package com.github.ojil.algorithm.j2se;
 
 import com.github.ojil.algorithm.ErrorCodes;
 import com.github.ojil.algorithm.Gray3Bands2Rgb;
+import com.github.ojil.algorithm.RgbSelectGray;
 import com.github.ojil.core.Error;
+import com.github.ojil.core.Gray8OffsetImage;
 import com.github.ojil.core.Image;
 import com.github.ojil.core.PipelineStage;
-import com.github.ojil.algorithm.RgbSelectGray;
-import com.github.ojil.core.Gray8Image;
-import com.github.ojil.core.Gray8OffsetImage;
 import com.github.ojil.core.RgbImage;
 import com.github.ojil.core.RgbOffsetImage;
 

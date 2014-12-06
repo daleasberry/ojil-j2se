@@ -32,12 +32,6 @@ import com.github.ojil.core.PipelineStage;
  * @author webb
  */
 public class Gray8AffineWarp1Pass extends PipelineStage {   
-    private enum WarpOrder {
-        WARP_X_FIRST,
-        WARP_Y_FIRST
-    };
-    
-    private WarpOrder eWarpOrder;
     int nXOffset, nYOffset;
     double rdWarp[][], rdInvWarp[][];
     double rdWarpX[];
@@ -136,8 +130,8 @@ public class Gray8AffineWarp1Pass extends PipelineStage {
         int nWidth = nMaxX - nMinX;
         int nHeight = nMaxY - nMinY;
         Gray8Image grayOut = new Gray8Image(nWidth, nHeight, Byte.MIN_VALUE);
-        byte[] dataIn = grayIn.getData();
-        byte[] dataOut = grayOut.getData();
+        Byte[] dataIn = grayIn.getData();
+        Byte[] dataOut = grayOut.getData();
         for (int x = nMinX; x<nMaxX; x++) {
             for (int y=nMinY; y<nMaxY; y++) {
                 Vec2 p = new Vec2((double) x, (double) y);

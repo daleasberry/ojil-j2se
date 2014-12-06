@@ -86,8 +86,10 @@ public class RgbImageJ2se implements com.github.ojil.debug.Show {
 				rgb.getWidth(), 
 				rgb.getHeight(), 
 				BufferedImage.TYPE_INT_RGB);
+		Integer[] rgbData = rgb.getData();
+		int[] dataBuffData = new int[rgbData.length];
 		DataBufferInt dbi = new DataBufferInt(
-				rgb.getData(),
+				dataBuffData,
 				rgb.getHeight() * rgb.getWidth());
 		Raster r = Raster.createRaster(
 				im.getSampleModel(),
@@ -140,7 +142,7 @@ public class RgbImageJ2se implements com.github.ojil.debug.Show {
 					if (dcm.getBlueMask()  == 0x000000ff &
 						dcm.getGreenMask() == 0x0000ff00 &
 						dcm.getRedMask()   == 0x00ff0000) {
-						int[] nData = this.rgb.getData();
+						Integer[] nData = this.rgb.getData();
 						for (int i=0; i<h; i++) {
 							System.arraycopy(
 									pixels, 
@@ -153,7 +155,7 @@ public class RgbImageJ2se implements com.github.ojil.debug.Show {
 					}	
 				}
 				// can't just copy. Use color conversion
-				int[] nData = this.rgb.getData();
+				Integer[] nData = this.rgb.getData();
 				for (int i = 0; i<h; i++) {
 					for (int j=0; j<w; j++) {
 						int nRgb = model.getRGB(pixels[j+off + i*scansize]);
@@ -172,7 +174,7 @@ public class RgbImageJ2se implements com.github.ojil.debug.Show {
                                 int off, 
                                 int scansize) {
 				// can't just copy. Use color conversion
-				int[] nData = this.rgb.getData();
+				Integer[] nData = this.rgb.getData();
 				for (int i = 0; i<h; i++) {
 					for (int j=0; j<w; j++) {
 						int nRgb = model.getRGB(pixels[j+off + i*scansize]);
@@ -184,7 +186,7 @@ public class RgbImageJ2se implements com.github.ojil.debug.Show {
 			public void setColorModel(ColorModel model) {
 				
 			}
-			@SuppressWarnings("unchecked")
+			@SuppressWarnings({ "rawtypes" })
 			public void setProperties(Hashtable props) {
 				
 			}

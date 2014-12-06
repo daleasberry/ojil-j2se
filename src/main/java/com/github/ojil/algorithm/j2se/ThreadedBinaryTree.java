@@ -199,12 +199,12 @@ public class ThreadedBinaryTree<typeKey extends Comparable<typeKey>, typeValue> 
 
     /**
      * Perform an inorder traversal of the tree from this
-     * to end and return a Vector containing all the nodes
+     * to end and return a Vector<?>containing all the nodes
      * traversed, in the order of traversal, 
      * or null if there is no inorder path starting
      * at this and ending at end.
      * @param end the end of the path.
-     * @return a Vector containing all the nodes traversed, in
+     * @return a Vector<?>containing all the nodes traversed, in
      * the order of traversal, or null if there is no path.
      */
     public Vector<ThreadedBinaryTree<typeKey,typeValue>> inorderTraverse(
@@ -344,12 +344,12 @@ public class ThreadedBinaryTree<typeKey extends Comparable<typeKey>, typeValue> 
 //                                    t.add(new ComparableInt(n));
 //                                    ThreadedBinaryTree tbt0 = t.find(new ComparableInt(0));
 //                                    ThreadedBinaryTree tbt5 = t.find(new ComparableInt(5));
-//                                    Vector v = tbt0.inorderTraverse(tbt5);
+//                                    Vector<?>v = tbt0.inorderTraverse(tbt5);
 //                                    for (int o = 0; o<6; o++) {
 //                                        ThreadedBinaryTree tbt = (ThreadedBinaryTree)v.elementAt(o);
 //                                        ComparableInt ci = (ComparableInt)tbt.getKey();
 //                                        if (ci.valueOf() != o) {
-//                                            Vector u = tbt0.inorderTraverse(tbt5);
+//                                            Vector<?>u = tbt0.inorderTraverse(tbt5);
 //                                            int error = 1;
 //                                        }
 //                                        
